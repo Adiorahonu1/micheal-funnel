@@ -267,6 +267,8 @@
     }
     .gate-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--white); font-weight: 700; line-height: 1.3; }
     .gate-sub { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.5; }
+    .gate-row { display: flex; gap: 12px; }
+    .gate-row .gate-input { flex: 1; }
     .gate-input {
       width: 100%; padding: 13px 20px; border: 2px solid rgba(255,255,255,0.2);
       border-radius: 50px; font-size: 0.95rem; outline: none; background: rgba(255,255,255,0.1);
@@ -275,6 +277,7 @@
     }
     .gate-input::placeholder { color: rgba(255,255,255,0.45); }
     .gate-input:focus { border-color: var(--gold); }
+    .gate-input.error { border-color: #e05252; }
     .gate-submit {
       width: 100%; background: var(--gold); color: var(--navy); border: none; border-radius: 50px;
       padding: 14px; font-size: 0.95rem; font-weight: 700; cursor: pointer;
@@ -282,6 +285,51 @@
     }
     .gate-submit:hover { opacity: 0.9; transform: translateY(-1px); }
     .gate-note { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
+
+    /* ══════════════════════════════════════════
+       CONFIRMATION SCREEN
+    ══════════════════════════════════════════ */
+    .confirm-screen {
+      max-width: 580px; margin: 0 auto; padding: 60px 24px 80px;
+      display: flex; flex-direction: column; align-items: center; gap: 0; text-align: center;
+    }
+    .confirm-icon {
+      width: 72px; height: 72px; border-radius: 50%; background: #f0f7f7;
+      border: 2px solid var(--teal); display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+    }
+    .confirm-eyebrow { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--teal); margin-bottom: 12px; }
+    .confirm-heading { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 4vw, 2.3rem); color: var(--navy); font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+    .confirm-body { font-size: 1rem; color: var(--sub); line-height: 1.75; margin-bottom: 10px; max-width: 480px; }
+    .confirm-email-tag {
+      display: inline-block; background: #f0f7f7; border: 1px solid var(--teal);
+      color: var(--teal); border-radius: 50px; padding: 6px 18px;
+      font-size: 0.88rem; font-weight: 600; margin-bottom: 36px;
+    }
+    .confirm-divider { width: 100%; height: 1px; background: var(--border); margin-bottom: 36px; }
+    .confirm-cta-card {
+      width: 100%; background: var(--white); border: 2px solid var(--border);
+      border-radius: 20px; padding: 36px 32px;
+      display: flex; flex-direction: column; align-items: center; gap: 14px;
+    }
+    .confirm-cta-eyebrow { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); }
+    .confirm-cta-heading { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--navy); font-weight: 700; line-height: 1.3; }
+    .confirm-cta-body { font-size: 0.92rem; color: var(--sub); line-height: 1.65; max-width: 400px; }
+    .confirm-cta-profiles {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 4px 0;
+    }
+    .confirm-profile-chip {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 50px;
+      padding: 5px 14px; font-size: 0.78rem; font-weight: 600; color: var(--sub);
+    }
+    .btn-book {
+      background: var(--navy); color: var(--white); border: none; border-radius: 50px;
+      padding: 15px 40px; font-size: 1rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; display: inline-block;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-book:hover { background: var(--teal); transform: translateY(-1px); }
+    .confirm-no-commit { font-size: 0.78rem; color: var(--sub); }
 
     /* ══════════════════════════════════════════
        FULL RESULT SCREEN
@@ -334,6 +382,7 @@
       .profile-card { padding: 28px 20px; }
       .score-bar-label { width: 120px; }
       .teaser-gate { padding: 24px 20px; }
+      .gate-row { flex-direction: column; gap: 10px; }
     }
   </style>
 </head>
@@ -341,7 +390,7 @@
 
 <nav class="navbar">
   <span class="navbar-brand">Life Changers Financial Services</span>
-  <a href="#" class="navbar-cta">Book a Call</a>
+  <a href="https://calendly.com/blengikephp/one-on-one-with-blessing-clone" target="_blank" class="navbar-cta">Book a Call</a>
 </nav>
 
 <div class="page">
@@ -499,6 +548,7 @@ const STATE = {
   answers: {},
   sliderValues: {},
   multiselect: [],
+  firstName: '',
   email: '',
   scores: {},
   winner: '',
@@ -566,7 +616,7 @@ function render() {
   if (STATE.screen === 'quiz') { el.innerHTML = renderQuiz(); app.appendChild(el); attachQuizHandlers(); return; }
   if (STATE.screen === 'generating') { el.innerHTML = renderGenerating(); app.appendChild(el); setTimeout(() => { STATE.screen = 'teaser'; render(); }, 2700); return; }
   if (STATE.screen === 'teaser') { el.innerHTML = renderTeaser(); app.appendChild(el); attachTeaserHandlers(); return; }
-  if (STATE.screen === 'result') { el.innerHTML = renderResult(); app.appendChild(el); return; }
+  if (STATE.screen === 'confirm') { el.innerHTML = renderConfirm(); app.appendChild(el); return; }
   app.appendChild(el);
 }
 
@@ -756,9 +806,12 @@ function renderTeaser() {
 
       <div class="teaser-gate">
         <div class="gate-title">Unlock your complete Financial Status Report</div>
-        <div class="gate-sub">Enter your email and we'll send your full results plus a personalised next step from our advisors.</div>
-        <input class="gate-input" id="gate-email" type="email" placeholder="your@email.com" autocomplete="email" />
-        <button class="gate-submit" id="gate-submit">Unlock My Report &rarr;</button>
+        <div class="gate-sub">Enter your name and email and we will send your full personalised report straight to your inbox.</div>
+        <div class="gate-row">
+          <input class="gate-input" id="gate-name" type="text" placeholder="Your first name" autocomplete="given-name" />
+          <input class="gate-input" id="gate-email" type="email" placeholder="your@email.com" autocomplete="email" />
+        </div>
+        <button class="gate-submit" id="gate-submit">Send My Report &rarr;</button>
         <div class="gate-note">No spam. Unsubscribe any time.</div>
       </div>
     </div>
@@ -767,16 +820,31 @@ function renderTeaser() {
 
 function attachTeaserHandlers() {
   document.getElementById('gate-submit').addEventListener('click', () => {
-    const val = document.getElementById('gate-email').value.trim();
-    if (!val || !val.includes('@')) {
-      document.getElementById('gate-email').style.borderColor = '#e05252';
-      return;
+    const nameVal = document.getElementById('gate-name').value.trim();
+    const emailVal = document.getElementById('gate-email').value.trim();
+    let valid = true;
+    if (!nameVal) {
+      document.getElementById('gate-name').classList.add('error');
+      valid = false;
+    } else {
+      document.getElementById('gate-name').classList.remove('error');
     }
-    STATE.email = val;
+    if (!emailVal || !emailVal.includes('@')) {
+      document.getElementById('gate-email').classList.add('error');
+      valid = false;
+    } else {
+      document.getElementById('gate-email').classList.remove('error');
+    }
+    if (!valid) return;
+
+    STATE.firstName = nameVal;
+    STATE.email = emailVal;
+
     fetch(N8N_WEBHOOK, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        firstName: STATE.firstName,
         email: STATE.email,
         profile: STATE.winner,
         profileName: PROFILES[STATE.winner].name,
@@ -786,7 +854,8 @@ function attachTeaserHandlers() {
         priorities: STATE.multiselect,
       })
     }).catch(() => {});
-    STATE.screen = 'result';
+
+    STATE.screen = 'confirm';
     render();
   });
 }
@@ -822,6 +891,43 @@ function renderResult() {
         <p class="profile-card-desc">${profile.desc}</p>
       </div>
       <a href="#" class="btn-cta">${profile.cta}</a>
+    </div>
+  `;
+}
+
+// ── Confirmation screen ────────────────────────────────────────────────────
+function renderConfirm() {
+  const profile = PROFILES[STATE.winner];
+  return `
+    <div class="confirm-screen fade-enter">
+      <div class="confirm-icon">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#2e6e6e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 8 L16 18 L28 8"/>
+          <rect x="3" y="7" width="26" height="18" rx="3"/>
+        </svg>
+      </div>
+      <div class="confirm-eyebrow">Report on its way</div>
+      <h2 class="confirm-heading">Check your inbox, ${STATE.firstName}.</h2>
+      <p class="confirm-body">We have sent your personalised Financial Status Report to</p>
+      <div class="confirm-email-tag">${STATE.email}</div>
+      <p class="confirm-body" style="margin-bottom:28px;">Your report includes your full profile breakdown, a personalised wealth strategy, and your recommended next steps as ${profile.name}.</p>
+
+      <div class="confirm-divider"></div>
+
+      <div class="confirm-cta-card">
+        <div class="confirm-cta-eyebrow">Take the next step</div>
+        <h3 class="confirm-cta-heading">Want expert guidance on your financial path?</h3>
+        <p class="confirm-cta-body">Our advisors understand every financial archetype. Whether you are a Freedom Seeker, Legacy Builder, Achievement Driver, Wealth Creator, or Connected Investor, we know exactly what your next move should be.</p>
+        <div class="confirm-cta-profiles">
+          <span class="confirm-profile-chip">Freedom Seeker</span>
+          <span class="confirm-profile-chip">Legacy Builder</span>
+          <span class="confirm-profile-chip">Achievement Driver</span>
+          <span class="confirm-profile-chip">Wealth Creator</span>
+          <span class="confirm-profile-chip">Connected Investor</span>
+        </div>
+        <a href="https://calendly.com/blengikephp/one-on-one-with-blessing-clone" target="_blank" class="btn-book">Book a Call with a Financial Expert</a>
+        <p class="confirm-no-commit">Free consultation. No commitment. No obligation.</p>
+      </div>
     </div>
   `;
 }
