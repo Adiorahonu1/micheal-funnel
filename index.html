@@ -631,6 +631,7 @@ function render() {
   if (STATE.screen === 'quiz') { el.innerHTML = renderQuiz(); app.appendChild(el); attachQuizHandlers(); return; }
   if (STATE.screen === 'generating') { el.innerHTML = renderGenerating(); app.appendChild(el); setTimeout(() => { STATE.screen = 'teaser'; render(); }, 2700); return; }
   if (STATE.screen === 'teaser') { el.innerHTML = renderTeaser(); app.appendChild(el); attachTeaserHandlers(); return; }
+  if (STATE.screen === 'phone') { el.innerHTML = renderPhone(); app.appendChild(el); attachPhoneHandlers(); return; }
   if (STATE.screen === 'confirm') { el.innerHTML = renderConfirm(); app.appendChild(el); return; }
   app.appendChild(el);
 }
@@ -822,13 +823,12 @@ function renderTeaser() {
 
       <div class="teaser-gate">
         <div class="gate-title">Unlock your complete Financial Status Report</div>
-        <div class="gate-sub">Enter your details and we will send your full personalised report straight to your inbox.</div>
+        <div class="gate-sub">Enter your name and email to unlock your full personalised report.</div>
         <div class="gate-row">
           <input class="gate-input" id="gate-name" type="text" placeholder="Your first name" autocomplete="given-name" />
           <input class="gate-input" id="gate-email" type="email" placeholder="your@email.com" autocomplete="email" />
         </div>
-        <input class="gate-input" id="gate-phone" type="tel" placeholder="Your phone number" autocomplete="tel" />
-        <button class="gate-submit" id="gate-submit">Send My Report &rarr;</button>
+        <button class="gate-submit" id="gate-submit">Continue &rarr;</button>
         <div class="gate-note">No spam. Unsubscribe any time.</div>
       </div>
     </div>
@@ -839,7 +839,6 @@ function attachTeaserHandlers() {
   document.getElementById('gate-submit').addEventListener('click', () => {
     const nameVal = document.getElementById('gate-name').value.trim();
     const emailVal = document.getElementById('gate-email').value.trim();
-    const phoneVal = document.getElementById('gate-phone').value.trim();
     let valid = true;
     if (!nameVal) {
       document.getElementById('gate-name').classList.add('error');
@@ -853,16 +852,40 @@ function attachTeaserHandlers() {
     } else {
       document.getElementById('gate-email').classList.remove('error');
     }
-    if (!phoneVal) {
-      document.getElementById('gate-phone').classList.add('error');
-      valid = false;
-    } else {
-      document.getElementById('gate-phone').classList.remove('error');
-    }
     if (!valid) return;
 
     STATE.firstName = nameVal;
     STATE.email = emailVal;
+    STATE.screen = 'phone';
+    render();
+  });
+}
+
+// ── Phone screen ────────────────────────────────────────────────────────────
+function renderPhone() {
+  return `
+    <div class="confirm-screen fade-enter">
+      <img src="logo.png" alt="Life Changers" class="confirm-logo" />
+      <div class="confirm-eyebrow">One last step</div>
+      <h2 class="confirm-heading">What's the best number to reach you on?</h2>
+      <p class="confirm-body" style="margin-bottom:28px;">We'll use this to send you a reminder and, if you'd like, to book a free consultation with one of our advisors.</p>
+      <div class="teaser-gate" style="width:100%;max-width:480px;">
+        <input class="gate-input" id="phone-input" type="tel" placeholder="Your phone number" autocomplete="tel" style="text-align:center;font-size:1.1rem;" />
+        <button class="gate-submit" id="phone-submit">Send My Report &rarr;</button>
+        <div class="gate-note">We will never share your number. No spam, ever.</div>
+      </div>
+    </div>
+  `;
+}
+
+function attachPhoneHandlers() {
+  document.getElementById('phone-submit').addEventListener('click', () => {
+    const phoneVal = document.getElementById('phone-input').value.trim();
+    if (!phoneVal) {
+      document.getElementById('phone-input').classList.add('error');
+      return;
+    }
+    document.getElementById('phone-input').classList.remove('error');
     STATE.phone = phoneVal;
 
     fetch(N8N_WEBHOOK, {
