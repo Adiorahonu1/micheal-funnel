@@ -97,13 +97,11 @@
       gap: 12px;
     }
     .top-bar__logo {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--white);
-      letter-spacing: -0.5px;
+      height: 32px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      display: block;
     }
-    .top-bar__logo span { color: var(--orange); }
     .top-bar__badge {
       font-family: 'Lato', sans-serif;
       font-size: 11px;
@@ -2066,11 +2064,12 @@
       margin-top: 20px;
     }
     .site-footer__logo {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 18px; font-weight: 800;
-      color: white; margin-bottom: 14px;
+      height: 26px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      display: block;
+      margin-bottom: 14px;
     }
-    .site-footer__logo span { color: var(--orange); }
     .site-footer p {
       font-family: 'Lato', sans-serif;
       font-size: 12px; line-height: 1.75;
@@ -2153,7 +2152,7 @@
        ============================================================ -->
   <header class="top-bar">
     <div class="container">
-      <div class="top-bar__logo">sun<span>run</span></div>
+      <img src="sunrun-logo.png" class="top-bar__logo" alt="Sunrun">
       <div class="top-bar__badge">America's #1 Solar Company</div>
     </div>
   </header>
@@ -2560,7 +2559,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <div class="site-footer__logo">sun<span>run</span></div>
+      <img src="sunrun-logo.png" class="site-footer__logo" alt="Sunrun">
       <p id="footer-disclaimer"></p>
       <div class="site-footer__links">
         <a id="footer-email-link" href="#">michael.edwin@sunrun.com</a>
