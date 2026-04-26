@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1, user-scalable=no">
-  <title>Find Out in 30 Secs If You Qualify for Free Sunrun Solar</title>
+  <title>$0 Down Solar for NJ & NY Homeowners | Sunrun</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Lato:wght@300;400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -14,18 +14,18 @@
        ============================================================ */
     const CONFIG = {
       CLIENT_NAME:         "New Jersey & New York",
-      CLIENT_OFFER:        "Free Sunrun Solar Installation",
+      CLIENT_OFFER:        "$0 Down Solar from Sunrun",
       BRAND_COLOR_PRIMARY: "#0ea5e9",
       BRAND_COLOR_BUTTON:  "#0ea5e9",
       BRAND_COLOR_LINK:    "#0284c7",
       BRAND_COLOR_FOOTER:  "#111827",
 
-      BREAKING_NEWS_LABEL: "Breaking News",
-      FORM_SUBHEADING:     "Complete this 30-second form — Michael will personally review your eligibility",
+      BREAKING_NEWS_LABEL: "Limited Availability",
+      FORM_SUBHEADING:     "Complete this 30 second form. Michael will personally review your quote.",
 
-      DISQUALIFY_MESSAGE:  "Unfortunately, you need to be a homeowner to qualify for Sunrun's free solar program. If your situation changes, reach out to Michael directly.",
-      THANKYOU_HEADING:    "You're Pre-Qualified!",
-      THANKYOU_MESSAGE:    "Michael Edwin will personally reach out within 24 hours to walk you through your custom Sunrun proposal — at no cost or obligation.",
+      DISQUALIFY_MESSAGE:  "Unfortunately, you need to be a homeowner to qualify for Sunrun's $0 down solar program. If your situation changes, reach out to Michael directly.",
+      THANKYOU_HEADING:    "You Qualify for $0 Down Solar!",
+      THANKYOU_MESSAGE:    "Michael Edwin will personally reach out within 24 hours to walk you through your custom Sunrun proposal. No cost, no obligation.",
 
       FOOTER_DISCLAIMER:   "This page is operated by Michael Edwin, an authorized Sunrun Energy Consultant Manager. Sunrun is America's #1 residential solar & battery storage company with 1,000,000+ customers served since 2007. Results vary based on location, roof condition, and utility rates. Subject to site assessment and credit approval. Federal and state incentives subject to change. This is not a government program.",
       FOOTER_COPYRIGHT:    `© ${new Date().getFullYear()} Sunrun Inc. All Rights Reserved. | michael.edwin@sunrun.com`,
@@ -36,9 +36,9 @@
       AGENT_PHONE:    "+1 (973) 368-3490",
       AGENT_PROFILE:  "https://viewmycard.io/Michaeledwin",
       AGENT_REFERRAL: "https://sunrun.secure.force.com/purl/?srep=/michaeledwin",
-      AGENT_TAGLINE:  "I help homeowners beat their utility bill with solar.",
+      AGENT_TAGLINE:  "I help homeowners go solar with $0 down and lower bills from month one.",
 
-      BILL_OPTIONS: ["Under $100/mo", "$100\u2013$200/mo", "$200\u2013$300/mo", "$300+/mo"],
+      BILL_OPTIONS: ["Under $100/mo", "$100 to $200/mo", "$200 to $300/mo", "$300+/mo"],
     };
   </script>
 
@@ -97,12 +97,13 @@
       gap: 12px;
     }
     .top-bar__logo {
-      height: 30px;
-      width: auto;
-      display: block;
-      flex-shrink: 0;
-      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.5px;
     }
+    .top-bar__logo span { color: var(--orange); }
     .top-bar__badge {
       font-family: 'Lato', sans-serif;
       font-size: 11px;
@@ -2065,12 +2066,11 @@
       margin-top: 20px;
     }
     .site-footer__logo {
-      height: 24px;
-      width: auto;
-      display: block;
-      margin-bottom: 14px;
-      border-radius: 3px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px; font-weight: 800;
+      color: white; margin-bottom: 14px;
     }
+    .site-footer__logo span { color: var(--orange); }
     .site-footer p {
       font-family: 'Lato', sans-serif;
       font-size: 12px; line-height: 1.75;
@@ -2108,6 +2108,162 @@
     @keyframes spin { to { transform: rotate(360deg); } }
 
     /* ============================================================
+       TESTIMONIALS / SOCIAL PROOF
+       ============================================================ */
+    .testimonials {
+      padding: 56px 0 48px;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .testimonials__header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .testimonials__google {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .testimonials__google img {
+      height: 28px;
+      width: auto;
+    }
+    .testimonials__google-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .testimonials__stars-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .testimonials__stars-row .stars {
+      color: #fbbf24;
+      font-size: 22px;
+      letter-spacing: 2px;
+    }
+    .testimonials__stars-row .rating {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+    .testimonials__subtitle {
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+    .testimonials__heading {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .testimonial-card {
+      background: #f9fafb;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      position: relative;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    .testimonial-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .testimonial-card__top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .testimonial-card__avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .testimonial-card__meta {
+      display: flex;
+      flex-direction: column;
+    }
+    .testimonial-card__name {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+    .testimonial-card__date {
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      color: var(--text-light);
+    }
+    .testimonial-card__stars {
+      color: #fbbf24;
+      font-size: 15px;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .testimonial-card__body {
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .testimonial-card__body strong {
+      color: var(--text-dark);
+    }
+    .testimonial-card__google-icon {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 20px;
+      height: 20px;
+      opacity: 0.5;
+    }
+    .testimonials__cta-row {
+      text-align: center;
+      margin-top: 32px;
+    }
+    .testimonials__cta {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .testimonials__cta:hover { background: var(--orange-dark); }
+
+    /* ============================================================
        RESPONSIVE — MOBILE
        ============================================================ */
     @media (max-width: 480px) {
@@ -2143,6 +2299,16 @@
 
       .thankyou-contact-grid { flex-direction: column; align-items: center; }
       .thankyou-contact-btn { width: 100%; justify-content: center; }
+
+      .testimonials { padding: 36px 0 32px; }
+      .testimonials__heading { font-size: 22px; }
+      .testimonials__grid { grid-template-columns: 1fr; gap: 14px; }
+      .testimonial-card { padding: 18px; }
+    }
+
+    @media (min-width: 481px) and (max-width: 768px) {
+      .testimonials__grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .testimonials__heading { font-size: 24px; }
     }
   </style>
 </head>
@@ -2153,7 +2319,7 @@
        ============================================================ -->
   <header class="top-bar">
     <div class="container">
-      <img src="sunrun-logo.png" class="top-bar__logo" alt="Sunrun">
+      <div class="top-bar__logo">sun<span>run</span></div>
       <div class="top-bar__badge">America's #1 Solar Company</div>
     </div>
   </header>
@@ -2165,87 +2331,40 @@
     <div class="container">
       <div class="hero__eyebrow">
         <div class="hero__eyebrow-dot"></div>
-        <span class="hero__eyebrow-text" id="hero-eyebrow-text">Breaking News</span>
+        <span class="hero__eyebrow-text" id="hero-eyebrow-text">Limited Availability</span>
       </div>
       <p class="hero__breaking" id="hero-breaking">
-        <strong>Breaking News</strong> &mdash; <span id="hero-client-name"></span> Homeowners
+        <strong>Attention</strong> <span id="hero-client-name"></span> Homeowners
       </p>
       <h1 class="hero__headline">
-        Find Out in 30 Seconds If You&rsquo;re Eligible for a<br>
-        <span class="highlight" id="hero-offer"></span>
+        <span class="highlight">$0 Down.</span> <span class="highlight">$0 Activation.</span> <span class="highlight">$0 Maintenance.</span>
       </h1>
+      <p style="font-family:'Inter',sans-serif; font-size:17px; color:var(--text); line-height:1.7; max-width:540px; margin:0 auto 20px; padding:0 16px;">
+        New Jersey homeowners: stop overpaying for electricity. With solar, you can lock in your rate and watch your savings grow every single year. No upfront cost. No hidden fees. Just lower bills starting month one. See if your home qualifies.
+      </p>
       <div class="hero__bonus-offer">
         <span class="hero__bonus-offer__plus">+</span>
-        Free Roof Repairs Included for Qualified Homeowners
+        Over 4,000 families already made the switch
+      </div>
+      <div class="hero__bonus-offer" style="margin-top:8px; border-color:#16a34a; background:#f0fdf4;">
+        <span class="hero__bonus-offer__plus" style="background:#16a34a;">🏠</span>
+        Bad roof? We repair it for FREE before installing your panels
       </div>
       <div class="hero__cta-strip">
-        <a href="#eligibility-form" class="hero__cta-btn">Check My Eligibility &darr;</a>
+        <a href="#eligibility-form" class="hero__cta-btn">Get Free Quote &darr;</a>
         <span class="hero__cta-sub">Free &middot; 30 seconds &middot; No obligation</span>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       REAL INSTALLATION PROOF
-       ============================================================ -->
-  <div class="install-proof-strip">
-    <img src="install-photo.jpg" alt="Real Sunrun installation in New Jersey — crew vans on site" class="install-proof__img">
-    <div class="install-proof__overlay">
-      <div class="install-proof__badge">✅ Real NJ Installation &mdash; Verified Sunrun Customer</div>
-      <div class="install-proof__stat">$0&ndash;$30<span>/mo</span> after solar</div>
-    </div>
-  </div>
-
-  <!-- ============================================================
-       DRONE VIDEO — SEE SOLAR IN ACTION
-       ============================================================ -->
-  <section class="video-proof">
-    <div class="video-proof__inner">
-      <video class="video-proof__video" autoplay muted loop playsinline
-        poster="RemoteMediaFile_6553753_0_2024_08_23_15_42_56.JPG">
-        <source src="drone-footage.mp4" type="video/mp4">
-      </video>
-      <div class="video-proof__overlay">
-        <div class="video-proof__badge">▶ Live Installation Footage</div>
-        <div class="video-proof__headline">See Sunrun Solar in Action</div>
-        <div class="video-proof__sub">Real crews. Real homes. Real results in NJ &amp; NY.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       NJ ENERGY EMERGENCY — GOVERNOR'S ORDER
-       ============================================================ -->
-  <section class="energy-emergency">
-    <div class="container">
-      <div class="ee-grid">
-        <div class="ee-image-col">
-          <img src="energy-emergency.jpg" alt="New Jersey Energy Emergency — Governor Sherrill Executive Order" class="ee-img">
-          <div class="ee-verified-badge">✅ Verified by Governor's Executive Order &mdash; Jan 20, 2026</div>
-        </div>
-        <div class="ee-copy-col">
-          <div class="ee-eyebrow">Why NJ Homeowners Are Acting Now</div>
-          <h2 class="ee-headline">Energy Bills Are Rising &mdash; The State Has Acknowledged It</h2>
-          <ul class="ee-bullets">
-            <li><strong>Electric bills are going UP</strong> &mdash; the State has acknowledged affordability is a problem</li>
-            <li><strong>NJ leadership is pushing solar + batteries</strong> to stabilize the grid and lower costs</li>
-            <li><strong>Utilities can raise rates</strong> &mdash; homeowners can't control them</li>
-            <li><strong>Solar + battery protects</strong> you from outdated grid, blackouts, and home energy cost spikes</li>
-          </ul>
-          <a href="#eligibility-form" class="ee-cta">Lock In My Rate Now &darr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       TRUST BAR
+       TRUST BAR — instant credibility before the form
        ============================================================ -->
   <div class="trust-bar">
     <div class="container">
       <div class="trust-pill">
         <span class="trust-pill__icon">🏆</span>
-        <span class="trust-pill__text">America's #1 Solar Company</span>
+        <span class="trust-pill__text">$0 Down, $0 Activation</span>
       </div>
       <div class="trust-pill">
         <span class="trust-pill__icon">👥</span>
@@ -2263,32 +2382,6 @@
   </div>
 
   <!-- ============================================================
-       AGENT PROFILE CARD
-       ============================================================ -->
-  <section class="agent-section" id="form-section">
-    <div class="container">
-      <div class="agent-teaser-card">
-        <div class="agent-teaser__blurred">
-          <div class="agent-teaser__avatar-wrap">
-            <img src="michael-photo.jpg" alt="Your Sunrun Consultant" class="agent-teaser__photo">
-          </div>
-          <div class="agent-teaser__info">
-            <div class="agent-teaser__label">Your Personal Sunrun Consultant</div>
-            <div class="agent-teaser__name">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608; &#9608;&#9608;&#9608;&#9608;&#9608;</div>
-            <div class="agent-teaser__title">Energy Consultant Manager &middot; Sunrun</div>
-            <div class="agent-teaser__stars">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 &middot; Verified</span></div>
-          </div>
-        </div>
-        <div class="agent-teaser__lock">
-          <div class="agent-teaser__lock-icon">🔒</div>
-          <div class="agent-teaser__lock-text">Complete the form to meet your consultant</div>
-          <a href="#eligibility-form" class="agent-teaser__lock-btn">Check My Eligibility &darr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
        FORM SECTION
        ============================================================ -->
   <section class="form-section" id="eligibility-form">
@@ -2298,11 +2391,11 @@
       <div class="form-intro">
         <div class="form-intro__urgency">
           <span class="form-urgency-dot"></span>
-          <span>3 spots remaining this week in NJ &amp; NY</span>
+          <span>Limited $0 down spots remaining this week</span>
         </div>
-        <div class="form-intro__eyebrow">⚡ Free — No Obligation — 30 Seconds</div>
-        <h2 class="form-intro__heading">Check Your Eligibility Now</h2>
-        <p class="form-intro__sub">Answer a few quick questions and Michael will personally review your home for a free Sunrun solar installation.</p>
+        <div class="form-intro__eyebrow">⚡ Free, No Obligation, 30 Seconds</div>
+        <h2 class="form-intro__heading">Get Your Free Solar Quote</h2>
+        <p class="form-intro__sub">Answer a few quick questions and Michael will personally review your home for $0 down Sunrun solar.</p>
       </div>
 
       <div class="form-wrapper">
@@ -2320,7 +2413,7 @@
         <!-- SLIDE 1: Home Ownership -->
         <div class="slide is-active" data-slide="1">
           <div class="slide__card">
-            <p class="slide__step-label">Step 1 of 10 &mdash; Eligibility</p>
+            <p class="slide__step-label">Step 1 of 10: Eligibility</p>
             <p class="slide__question">Do you own your home?</p>
             <div class="options-grid single-col">
               <button class="option-btn" data-value="own" onclick="selectOption(this,1)">
@@ -2340,14 +2433,14 @@
         <!-- SLIDE 2: Home Age -->
         <div class="slide" data-slide="2">
           <div class="slide__card">
-            <p class="slide__step-label">Step 2 of 10 &mdash; Your Home</p>
+            <p class="slide__step-label">Step 2 of 10: Your Home</p>
             <p class="slide__question">How old is your home?</p>
             <div class="options-grid single-col">
               <button class="option-btn" data-value="0-10" onclick="selectOption(this,2)">
-                <span class="radio-dot"></span> 🏗️ &nbsp;0&ndash;10 years old
+                <span class="radio-dot"></span> 🏗️ &nbsp;0 to 10 years old
               </button>
               <button class="option-btn" data-value="10-20" onclick="selectOption(this,2)">
-                <span class="radio-dot"></span> 🏠 &nbsp;10&ndash;20 years old
+                <span class="radio-dot"></span> 🏠 &nbsp;10 to 20 years old
               </button>
               <button class="option-btn" data-value="20+" onclick="selectOption(this,2)">
                 <span class="radio-dot"></span> 🏡 &nbsp;20+ years old
@@ -2363,7 +2456,7 @@
         <!-- SLIDE 3: Power Usage Timing -->
         <div class="slide" data-slide="3">
           <div class="slide__card">
-            <p class="slide__step-label">Step 3 of 10 &mdash; Energy Usage</p>
+            <p class="slide__step-label">Step 3 of 10: Energy Usage</p>
             <p class="slide__question">When do you use most of your power?</p>
             <div class="options-grid single-col">
               <button class="option-btn" data-value="day" onclick="selectOption(this,3)">
@@ -2386,7 +2479,7 @@
         <!-- SLIDE 4: Current Solar -->
         <div class="slide" data-slide="4">
           <div class="slide__card">
-            <p class="slide__step-label">Step 4 of 10 &mdash; Current Setup</p>
+            <p class="slide__step-label">Step 4 of 10: Current Setup</p>
             <p class="slide__question">Do you currently have solar installed?</p>
             <div class="options-grid single-col">
               <button class="option-btn" data-value="no-solar" onclick="selectOption(this,4)">
@@ -2406,7 +2499,7 @@
         <!-- SLIDE 5: Roof Shading -->
         <div class="slide" data-slide="5">
           <div class="slide__card">
-            <p class="slide__step-label">Step 5 of 10 &mdash; Roof Assessment</p>
+            <p class="slide__step-label">Step 5 of 10: Roof Assessment</p>
             <p class="slide__question">Does your roof have any shading issues?</p>
             <div class="options-grid">
               <button class="option-btn" data-value="no-shading" onclick="selectOption(this,5)">
@@ -2432,7 +2525,7 @@
         <!-- SLIDE 6: Electricity Bill -->
         <div class="slide" data-slide="6">
           <div class="slide__card">
-            <p class="slide__step-label">Step 6 of 10 &mdash; Energy Cost</p>
+            <p class="slide__step-label">Step 6 of 10: Energy Cost</p>
             <p class="slide__question">What is your approximate monthly electricity bill?</p>
             <div class="options-grid single-col" id="bill-options-grid"></div>
             <div class="slide-nav">
@@ -2445,7 +2538,7 @@
         <!-- SLIDE 7: ZIP Code -->
         <div class="slide" data-slide="7">
           <div class="slide__card">
-            <p class="slide__step-label">Step 7 of 10 &mdash; Your Location</p>
+            <p class="slide__step-label">Step 7 of 10: Your Location</p>
             <p class="slide__question">What is your ZIP code?</p>
             <div class="input-group">
               <label class="input-label" for="field-zip">ZIP Code</label>
@@ -2462,7 +2555,7 @@
         <!-- SLIDE 8: Full Name -->
         <div class="slide" data-slide="8">
           <div class="slide__card">
-            <p class="slide__step-label">Step 8 of 10 &mdash; Almost Done!</p>
+            <p class="slide__step-label">Step 8 of 10: Almost Done!</p>
             <p class="slide__question">What is your full name?</p>
             <div class="input-group">
               <label class="input-label" for="field-name">Full Name</label>
@@ -2479,7 +2572,7 @@
         <!-- SLIDE 9: Email -->
         <div class="slide" data-slide="9">
           <div class="slide__card">
-            <p class="slide__step-label">Step 9 of 10 &mdash; Almost Done!</p>
+            <p class="slide__step-label">Step 9 of 10: Almost Done!</p>
             <p class="slide__question">What is your email address?</p>
             <div class="input-group">
               <label class="input-label" for="field-email">Email Address</label>
@@ -2496,7 +2589,7 @@
         <!-- SLIDE 10: Phone -->
         <div class="slide" data-slide="10">
           <div class="slide__card">
-            <p class="slide__step-label">Step 10 of 10 &mdash; Last Step!</p>
+            <p class="slide__step-label">Step 10 of 10: Last Step!</p>
             <p class="slide__question">What is the best number to reach you?</p>
             <div class="input-group">
               <label class="input-label" for="field-phone">Phone Number</label>
@@ -2506,7 +2599,7 @@
             <div class="slide-nav">
               <button class="nav-btn btn-back" onclick="prevSlide(10)">&#9664; Back</button>
               <button class="nav-btn btn-submit" id="btn-submit" onclick="submitForm()">
-                🎯 Check My Eligibility
+                🎯 Get Free Quote
               </button>
             </div>
           </div>
@@ -2542,7 +2635,7 @@
         <div class="thankyou-profile">
           <div class="thankyou-profile__reveal-label">&#10024; Your dedicated consultant has been assigned</div>
           <div class="thankyou-profile__card">
-            <img src="michael-photo.jpg" alt="Michael Edwin — Sunrun Energy Consultant" class="thankyou-profile__photo">
+            <img src="michael-photo.jpg" alt="Michael Edwin, Sunrun Energy Consultant" class="thankyou-profile__photo">
             <div class="thankyou-profile__details">
               <div class="thankyou-profile__name" id="ty-agent-name"></div>
               <div class="thankyou-profile__title" id="ty-agent-title"></div>
@@ -2558,14 +2651,294 @@
     </div>
   </section>
 
+  <!-- ============================================================
+       SAVINGS STATS STRIP — RISING BILLS PAIN POINT (for scrollers)
+       ============================================================ -->
+  <section class="savings-strip">
+    <div class="container">
+      <div class="savings-strip__eyebrow">Tired of Your Electric Bill Going Up Every Year?</div>
+      <div class="savings-strip__grid">
+        <div class="savings-stat">
+          <div class="savings-stat__number" data-target="22" data-suffix="%">0%</div>
+          <div class="savings-stat__label">NJ Rate Increase</div>
+          <div class="savings-stat__sub">Electricity rates jumped 22% in just 3 years</div>
+        </div>
+        <div class="savings-stat savings-stat--highlight">
+          <div class="savings-stat__number" data-target="90" data-prefix="" data-suffix="%">0%</div>
+          <div class="savings-stat__label">Bill Reduction</div>
+          <div class="savings-stat__sub">Homeowners cut their bills by up to 90%</div>
+        </div>
+        <div class="savings-stat">
+          <div class="savings-stat__number" data-target="25" data-suffix=" yrs">0</div>
+          <div class="savings-stat__label">Rate Lock</div>
+          <div class="savings-stat__sub">Lock in your energy cost for 25 years. No more surprises.</div>
+        </div>
+        <div class="savings-stat">
+          <div class="savings-stat__number" data-target="4000" data-prefix="" data-suffix="+">0</div>
+          <div class="savings-stat__label">Families Switched</div>
+          <div class="savings-stat__sub">Thousands of NJ homeowners already locked in savings</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NJ ENERGY EMERGENCY — GOVERNOR'S ORDER
+       ============================================================ -->
+  <section class="energy-emergency">
+    <div class="container">
+      <div class="ee-grid">
+        <div class="ee-image-col">
+          <img src="IMG_6006.JPG" alt="New Jersey Energy Emergency, Governor Sherrill Executive Order" class="ee-img">
+          <div class="ee-verified-badge">✅ Verified by Governor's Executive Order, Jan 20, 2026</div>
+        </div>
+        <div class="ee-copy-col">
+          <div class="ee-eyebrow">Why NJ Homeowners Are Going Solar Now</div>
+          <h2 class="ee-headline">Energy Bills Are Rising. Lock In $0 Down Before It Ends.</h2>
+          <ul class="ee-bullets">
+            <li><strong>NJ electricity rates jumped 22% in 3 years</strong> and they're not slowing down. The state has acknowledged affordability is a crisis.</li>
+            <li><strong>NJ leadership is pushing solar + batteries</strong> to stabilize the grid and lower costs for homeowners</li>
+            <li><strong>Utilities can raise your rates at any time</strong> but solar locks in your cost for 25 years. No more surprises.</li>
+            <li><strong>$0 down solar + battery</strong> protects you from rate hikes, blackouts, and rising energy costs</li>
+            <li><strong>Roof in bad shape? Sunrun fixes it for free</strong> before your panels go up. This offer won't last forever.</li>
+          </ul>
+          <a href="#eligibility-form" class="ee-cta">Get Free Quote &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS / SOCIAL PROOF
+       ============================================================ -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="testimonials__header">
+        <div class="testimonials__google">
+          <svg height="28" viewBox="0 0 272 92" xmlns="http://www.w3.org/2000/svg"><path d="M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.54 12.51-13.44z" fill="#EA4335"/><path d="M163.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18c0-12.86 9.99-22.18 22.25-22.18s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44s-12.51 5.46-12.51 13.44c0 7.9 5.79 13.44 12.51 13.44s12.51-5.54 12.51-13.44z" fill="#FBBC05"/><path d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.25zm-8.56 20.92c0-7.81-5.21-13.52-11.84-13.52-6.72 0-12.35 5.71-12.35 13.52 0 7.73 5.63 13.36 12.35 13.36 6.63 0 11.84-5.63 11.84-13.36z" fill="#4285F4"/><path d="M225 3v65h-9.5V3h9.5z" fill="#34A853"/><path d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-23.27-7.98l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z" fill="#EA4335"/><path d="M35.29 41.19V32H67c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.91.36 15.93 16.32.47 35.3.47c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.65l-22.49-.01z" fill="#4285F4"/></svg>
+          <span class="testimonials__google-text">Reviews</span>
+        </div>
+        <div class="testimonials__stars-row">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating">5.0</span>
+        </div>
+        <p class="testimonials__subtitle">Based on verified homeowner experiences</p>
+        <h2 class="testimonials__heading">Homeowners Love Their Sunrun Install</h2>
+      </div>
+
+      <div class="testimonials__grid">
+
+        <div class="testimonial-card">
+          <svg class="testimonial-card__google-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" fill="#FFC107"/><path d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z" fill="#FF3D00"/><path d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0124 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z" fill="#4CAF50"/><path d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 01-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z" fill="#1976D2"/></svg>
+          <div class="testimonial-card__top">
+            <div class="testimonial-card__avatar">RM</div>
+            <div class="testimonial-card__meta">
+              <span class="testimonial-card__name">Robert M.</span>
+              <span class="testimonial-card__date">3 weeks ago</span>
+            </div>
+          </div>
+          <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-card__body">
+            <strong>My bill went from $310 to $28.</strong> I was skeptical at first but the whole process was smooth. Michael walked me through everything, the install crew was professional, and I'm saving money from month one. Wish I did this years ago.
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <svg class="testimonial-card__google-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" fill="#FFC107"/><path d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z" fill="#FF3D00"/><path d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0124 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z" fill="#4CAF50"/><path d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 01-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z" fill="#1976D2"/></svg>
+          <div class="testimonial-card__top">
+            <div class="testimonial-card__avatar">TJ</div>
+            <div class="testimonial-card__meta">
+              <span class="testimonial-card__name">Tamika J.</span>
+              <span class="testimonial-card__date">1 month ago</span>
+            </div>
+          </div>
+          <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-card__body">
+            <strong>$0 down was real, not a gimmick.</strong> They even fixed a section of my roof before installing the panels at no extra cost. My neighbors keep asking me about it. I tell everyone to talk to Michael.
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <svg class="testimonial-card__google-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" fill="#FFC107"/><path d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z" fill="#FF3D00"/><path d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0124 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z" fill="#4CAF50"/><path d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 01-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z" fill="#1976D2"/></svg>
+          <div class="testimonial-card__top">
+            <div class="testimonial-card__avatar">DL</div>
+            <div class="testimonial-card__meta">
+              <span class="testimonial-card__name">David L.</span>
+              <span class="testimonial-card__date">2 weeks ago</span>
+            </div>
+          </div>
+          <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-card__body">
+            <strong>Locked in my rate for 25 years.</strong> No more stressing about PSE&amp;G rate hikes every summer. The install took less than a day and the panels look great on the house. 10/10 would recommend.
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <svg class="testimonial-card__google-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" fill="#FFC107"/><path d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z" fill="#FF3D00"/><path d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0124 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z" fill="#4CAF50"/><path d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 01-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z" fill="#1976D2"/></svg>
+          <div class="testimonial-card__top">
+            <div class="testimonial-card__avatar">SP</div>
+            <div class="testimonial-card__meta">
+              <span class="testimonial-card__name">Sandra P.</span>
+              <span class="testimonial-card__date">1 month ago</span>
+            </div>
+          </div>
+          <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-card__body">
+            <strong>Best decision we made as homeowners.</strong> We were paying over $400/mo for electricity. Now it's under $40 and we're protected from rate hikes for the next 25 years. The Sunrun team was incredible.
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <svg class="testimonial-card__google-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" fill="#FFC107"/><path d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z" fill="#FF3D00"/><path d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0124 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z" fill="#4CAF50"/><path d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 01-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z" fill="#1976D2"/></svg>
+          <div class="testimonial-card__top">
+            <div class="testimonial-card__avatar">JW</div>
+            <div class="testimonial-card__meta">
+              <span class="testimonial-card__name">James W.</span>
+              <span class="testimonial-card__date">3 weeks ago</span>
+            </div>
+          </div>
+          <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-card__body">
+            <strong>They fixed my roof AND installed solar for free.</strong> I thought my roof disqualified me but Sunrun repaired it at no charge before putting the panels up. Now I'm saving $250/mo. This is a no brainer.
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <svg class="testimonial-card__google-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" fill="#FFC107"/><path d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z" fill="#FF3D00"/><path d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0124 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z" fill="#4CAF50"/><path d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 01-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z" fill="#1976D2"/></svg>
+          <div class="testimonial-card__top">
+            <div class="testimonial-card__avatar">LH</div>
+            <div class="testimonial-card__meta">
+              <span class="testimonial-card__name">Lisa H.</span>
+              <span class="testimonial-card__date">2 months ago</span>
+            </div>
+          </div>
+          <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-card__body">
+            <strong>Michael made the whole process easy.</strong> From the first call to the final inspection, everything was handled for us. We pay less now for solar than we did for electricity. Zero out of pocket to get started.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="testimonials__cta-row">
+        <a href="#eligibility-form" class="testimonials__cta">Get Free Quote &darr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BENEFITS BREAKDOWN — TAX CREDIT + HOME VALUE
+       ============================================================ -->
+  <section class="benefits-section">
+    <div class="container">
+      <div class="benefits-eyebrow">The Numbers Don't Lie</div>
+      <h2 class="benefits-headline">NJ Homeowners: The 30% Federal Tax Credit Won't Last Forever</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card benefit-card--featured">
+          <div class="benefit-card__badge">Expires 2032</div>
+          <div class="benefit-card__icon">💰</div>
+          <div class="benefit-card__title">Federal Tax Credit</div>
+          <div class="benefit-card__stat">30%</div>
+          <div class="benefit-card__body">The government pays <strong>30% of your solar installation</strong> through the Federal Tax Credit. A $20,000 system could cost you as little as <strong>$14,000</strong>, and your savings start day one.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-card__icon">📈</div>
+          <div class="benefit-card__title">Home Value Increase</div>
+          <div class="benefit-card__stat">4.1%</div>
+          <div class="benefit-card__body">Solar homes sell for <strong>4.1% more</strong> according to the National Renewable Energy Laboratory. Your roof is already sitting in the sun. Put it to work.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-card__icon">⚡</div>
+          <div class="benefit-card__title">Monthly Savings</div>
+          <div class="benefit-card__stat">$0 <span>down</span></div>
+          <div class="benefit-card__body">No upfront cost. No hidden fees. No activation charges. <strong>Just lower bills starting month one.</strong> BBB Accredited. Licensed and insured.</div>
+        </div>
+      </div>
+      <div class="benefits-cta-row">
+        <a href="#eligibility-form" class="benefits-cta">See Your Savings &darr;</a>
+        <span class="benefits-cta-note">Find out in 30 seconds if your home qualifies</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       REAL INSTALLATION PROOF
+       ============================================================ -->
+  <div class="install-proof-strip">
+    <img src="IMG_2934.JPG" alt="Real Sunrun installation in New Jersey, crew vans on site" class="install-proof__img">
+    <div class="install-proof__overlay">
+      <div class="install-proof__badge">✅ Real NJ Installation, Verified Sunrun Customer</div>
+      <div class="install-proof__stat">$0<span>/mo</span> out of pocket</div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       DRONE VIDEO — SEE SOLAR IN ACTION
+       ============================================================ -->
+  <section class="video-proof">
+    <div class="video-proof__inner">
+      <video class="video-proof__video" autoplay muted loop playsinline
+        poster="RemoteMediaFile_6553753_0_2024_08_23_15_42_56.JPG">
+        <source src="Video_6553751_DJI_151_mp4_185901162_42000_2024823154054_video_original.MP4" type="video/mp4">
+      </video>
+      <div class="video-proof__overlay">
+        <div class="video-proof__badge">▶ Live Installation Footage</div>
+        <div class="video-proof__headline">See $0 Down Solar in Action</div>
+        <div class="video-proof__sub">Real crews. Real homes. Real savings in NJ &amp; NY.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ROOF REPAIR OFFER BANNER
+       ============================================================ -->
+  <section class="roof-banner">
+    <div class="container">
+      <div class="roof-banner__inner">
+        <div class="roof-banner__icon">🏠</div>
+        <div class="roof-banner__copy">
+          <div class="roof-banner__headline">Bad Roof? <span>We Fix It for FREE.</span> Then Install Your Solar.</div>
+          <div class="roof-banner__sub">Most companies won't touch a damaged roof. Sunrun repairs it at no cost before your panels go up. This program has limited spots and could end at any time. Don't wait until you're paying for both a new roof AND rising electric bills.</div>
+        </div>
+        <a href="#eligibility-form" class="roof-banner__btn">Get Free Quote &darr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       AGENT PROFILE CARD
+       ============================================================ -->
+  <section class="agent-section" id="form-section">
+    <div class="container">
+      <div class="agent-teaser-card">
+        <div class="agent-teaser__blurred">
+          <div class="agent-teaser__avatar-wrap">
+            <img src="michael-photo.jpg" alt="Your Sunrun Consultant" class="agent-teaser__photo">
+          </div>
+          <div class="agent-teaser__info">
+            <div class="agent-teaser__label">Your Personal Sunrun Consultant</div>
+            <div class="agent-teaser__name">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608; &#9608;&#9608;&#9608;&#9608;&#9608;</div>
+            <div class="agent-teaser__title">Energy Consultant Manager &middot; Sunrun</div>
+            <div class="agent-teaser__stars">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 &middot; Verified</span></div>
+          </div>
+        </div>
+        <div class="agent-teaser__lock">
+          <div class="agent-teaser__lock-icon">🔒</div>
+          <div class="agent-teaser__lock-text">Complete the form to get your free quote</div>
+          <a href="#eligibility-form" class="agent-teaser__lock-btn">Get Free Quote &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer class="site-footer">
     <div class="container">
-      <img src="sunrun-logo.png" class="site-footer__logo" alt="Sunrun">
+      <div class="site-footer__logo">sun<span>run</span></div>
       <p id="footer-disclaimer"></p>
       <div class="site-footer__links">
         <a id="footer-email-link" href="#">michael.edwin@sunrun.com</a>
         <span class="site-footer__sep">|</span>
-        <a id="footer-referral-link" href="#" target="_blank">Get a Free Quote</a>
+        <a id="footer-referral-link" href="#" target="_blank">Get Free Quote</a>
         <span class="site-footer__sep">|</span>
         <a id="footer-profile-link" href="#" target="_blank">View Michael's Profile</a>
       </div>
@@ -2647,7 +3020,7 @@
     const answers = {};
 
     function updateProgress(step) {
-      const label = step >= 8 ? '— Almost done!' : step >= 5 ? '— Halfway there!' : '';
+      const label = step >= 8 ? ', almost done!' : step >= 5 ? ', halfway there!' : '';
       document.getElementById('progress-label').textContent = `Step ${step} of ${TOTAL} ${label}`.trim();
       for (let i = 1; i <= TOTAL; i++) {
         const dot  = document.getElementById(`dot-${i}`);
@@ -2766,7 +3139,7 @@
 
       const btn = document.getElementById('btn-submit');
       btn.disabled = true;
-      btn.innerHTML = '<span class="spinner"></span> Checking Eligibility...';
+      btn.innerHTML = '<span class="spinner"></span> Preparing Your Quote...';
 
       /* ---- Send to CRM / webhook here ---- */
       /* fetch('/api/leads', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(answers) }) */
@@ -2797,9 +3170,9 @@
   <div class="sticky-cta" id="sticky-cta">
     <div class="sticky-cta__text">
       <span class="sticky-cta__dot"></span>
-      Michael is reviewing applications now
+      $0 down solar is available in your area
     </div>
-    <a href="#eligibility-form" class="sticky-cta__btn" id="sticky-cta-btn">Check My Eligibility &darr;</a>
+    <a href="#eligibility-form" class="sticky-cta__btn" id="sticky-cta-btn">Get Free Quote &darr;</a>
     <button class="sticky-cta__dismiss" onclick="document.getElementById('sticky-cta').classList.add('hidden'); document.getElementById('sticky-cta').classList.remove('visible');" aria-label="Dismiss">&times;</button>
   </div>
 
