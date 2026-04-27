@@ -39,6 +39,9 @@
       AGENT_TAGLINE:  "I help homeowners go solar with $0 down and lower bills from month one.",
 
       BILL_OPTIONS: ["Under $100/mo", "$100 to $200/mo", "$200 to $300/mo", "$300+/mo"],
+
+      /* n8n Webhook → Google Sheets */
+      N8N_WEBHOOK_URL: "https://n8n.srv1180913.hstgr.cloud/webhook/sunrun-funnel-lead",
     };
   </script>
 
@@ -806,6 +809,138 @@
     @media (max-width: 768px) {
       .ee-grid { grid-template-columns: 1fr; gap: 28px; }
       .ee-headline { font-size: 22px; }
+    }
+
+    /* ============================================================
+       SOLAR ADOPTION MAP — SOCIAL PROOF
+       ============================================================ */
+    .solar-map-proof {
+      background: linear-gradient(180deg, #0c1a2e 0%, #132744 100%);
+      padding: 60px 0;
+      overflow: hidden;
+    }
+    .solar-map-proof__eyebrow {
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--sky);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .solar-map-proof__headline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--white);
+      text-align: center;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .solar-map-proof__headline .highlight {
+      color: var(--sky);
+    }
+    .solar-map-proof__sub {
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.5;
+    }
+    .solar-map-proof__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .solar-map-card {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .solar-map-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .solar-map-card__label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, transparent 100%);
+      padding: 32px 16px 14px;
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+    .solar-map-proof__stat-row {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+    .solar-map-stat {
+      text-align: center;
+    }
+    .solar-map-stat__number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--sky);
+      line-height: 1;
+    }
+    .solar-map-stat__label {
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 6px;
+    }
+    .solar-map-proof__cta-row {
+      text-align: center;
+      margin-top: 32px;
+    }
+    .solar-map-proof__cta {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .solar-map-proof__cta:hover {
+      background: var(--orange-dark);
+      transform: translateY(-2px);
+    }
+    @media (max-width: 768px) {
+      .solar-map-proof { padding: 44px 0; }
+      .solar-map-proof__headline { font-size: 24px; padding: 0 12px; }
+      .solar-map-proof__sub { font-size: 14px; padding: 0 12px; }
+      .solar-map-proof__grid { grid-template-columns: 1fr; gap: 16px; padding: 0 12px; }
+      .solar-map-stat__number { font-size: 26px; }
+    }
+    @media (max-width: 480px) {
+      .solar-map-proof__headline { font-size: 21px; }
+      .solar-map-proof__stat-row { gap: 20px; }
+      .solar-map-stat__number { font-size: 22px; }
     }
 
     /* ============================================================
@@ -2344,11 +2479,11 @@
       </p>
       <div class="hero__bonus-offer">
         <span class="hero__bonus-offer__plus">+</span>
-        Over 4,000 families already made the switch
+        Over 40,000 families already made the switch
       </div>
       <div class="hero__bonus-offer" style="margin-top:8px; border-color:#16a34a; background:#f0fdf4;">
         <span class="hero__bonus-offer__plus" style="background:#16a34a;">🏠</span>
-        Bad roof? We repair it for FREE before installing your panels
+        Bad roof or overgrown trees? We repair it and cut them for FREE before installing your panels
       </div>
       <div class="hero__cta-strip">
         <a href="#eligibility-form" class="hero__cta-btn">Get Free Quote &darr;</a>
@@ -2674,7 +2809,7 @@
           <div class="savings-stat__sub">Lock in your energy cost for 25 years. No more surprises.</div>
         </div>
         <div class="savings-stat">
-          <div class="savings-stat__number" data-target="4000" data-prefix="" data-suffix="+">0</div>
+          <div class="savings-stat__number" data-target="40000" data-prefix="" data-suffix="+">0</div>
           <div class="savings-stat__label">Families Switched</div>
           <div class="savings-stat__sub">Thousands of NJ homeowners already locked in savings</div>
         </div>
@@ -2700,10 +2835,48 @@
             <li><strong>NJ leadership is pushing solar + batteries</strong> to stabilize the grid and lower costs for homeowners</li>
             <li><strong>Utilities can raise your rates at any time</strong> but solar locks in your cost for 25 years. No more surprises.</li>
             <li><strong>$0 down solar + battery</strong> protects you from rate hikes, blackouts, and rising energy costs</li>
-            <li><strong>Roof in bad shape? Sunrun fixes it for free</strong> before your panels go up. This offer won't last forever.</li>
+            <li><strong>Roof in bad shape or trees blocking sunlight? Sunrun fixes the roof and cuts the trees for free</strong> before your panels go up. This offer won't last forever.</li>
           </ul>
           <a href="#eligibility-form" class="ee-cta">Get Free Quote &darr;</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SOLAR ADOPTION MAP — GEOGRAPHIC SOCIAL PROOF
+       ============================================================ -->
+  <section class="solar-map-proof">
+    <div class="container">
+      <div class="solar-map-proof__eyebrow">Real Sunrun Installs Near You</div>
+      <h2 class="solar-map-proof__headline">Your Neighbors Already Made the Switch. <span class="highlight">4,500+ and Counting.</span></h2>
+      <p class="solar-map-proof__sub">Every pin on this map is a real homeowner saving money with Sunrun solar. NJ and NY are leading the charge.</p>
+      <div class="solar-map-proof__grid">
+        <div class="solar-map-card">
+          <img src="solar-map-nj-zoomed.png" alt="Sunrun solar installations map, central New Jersey, 4,400 plus homes" loading="lazy">
+          <div class="solar-map-card__label">Central NJ: 4,400+ Sunrun Installs</div>
+        </div>
+        <div class="solar-map-card">
+          <img src="solar-map-nj-ny-wide.png" alt="Sunrun solar installations map, New Jersey and New York region, 4,500 plus homes" loading="lazy">
+          <div class="solar-map-card__label">NJ + NY Region: 4,500+ Sunrun Installs</div>
+        </div>
+      </div>
+      <div class="solar-map-proof__stat-row">
+        <div class="solar-map-stat">
+          <div class="solar-map-stat__number">4,500+</div>
+          <div class="solar-map-stat__label">Homes Switched</div>
+        </div>
+        <div class="solar-map-stat">
+          <div class="solar-map-stat__number">$0</div>
+          <div class="solar-map-stat__label">Down Payment</div>
+        </div>
+        <div class="solar-map-stat">
+          <div class="solar-map-stat__number">25yr</div>
+          <div class="solar-map-stat__label">Rate Lock</div>
+        </div>
+      </div>
+      <div class="solar-map-proof__cta-row">
+        <a href="#eligibility-form" class="solar-map-proof__cta">Join Your Neighbors &darr;</a>
       </div>
     </div>
   </section>
@@ -2897,7 +3070,7 @@
       <div class="roof-banner__inner">
         <div class="roof-banner__icon">🏠</div>
         <div class="roof-banner__copy">
-          <div class="roof-banner__headline">Bad Roof? <span>We Fix It for FREE.</span> Then Install Your Solar.</div>
+          <div class="roof-banner__headline">Bad Roof? Trees in the Way? <span>We Fix It All for FREE.</span> Then Install Your Solar.</div>
           <div class="roof-banner__sub">Most companies won't touch a damaged roof. Sunrun repairs it at no cost before your panels go up. This program has limited spots and could end at any time. Don't wait until you're paying for both a new roof AND rising electric bills.</div>
         </div>
         <a href="#eligibility-form" class="roof-banner__btn">Get Free Quote &darr;</a>
@@ -2953,7 +3126,6 @@
     /* ---- Apply CONFIG ---- */
     (function applyConfig() {
       document.getElementById('hero-client-name').textContent  = CONFIG.CLIENT_NAME;
-      document.getElementById('hero-offer').textContent        = CONFIG.CLIENT_OFFER;
       document.getElementById('disqualify-text').textContent   = CONFIG.DISQUALIFY_MESSAGE;
       document.getElementById('thankyou-heading').textContent  = CONFIG.THANKYOU_HEADING;
       document.getElementById('thankyou-text').textContent     = CONFIG.THANKYOU_MESSAGE;
@@ -3128,6 +3300,19 @@
       document.getElementById('disqualify-box').classList.add('visible');
     }
 
+    /* ---- Send lead data to n8n → Google Sheets ---- */
+    function sendToN8N(payload) {
+      if (!CONFIG.N8N_WEBHOOK_URL || CONFIG.N8N_WEBHOOK_URL.includes('PASTE_YOUR')) {
+        console.warn('n8n webhook URL not configured. Lead data:', payload);
+        return Promise.resolve();
+      }
+      return fetch(CONFIG.N8N_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).catch(err => console.error('n8n webhook error:', err));
+    }
+
     function submitForm() {
       const phoneField = document.getElementById('field-phone');
       const phoneErr   = document.getElementById('err-phone');
@@ -3141,9 +3326,21 @@
       btn.disabled = true;
       btn.innerHTML = '<span class="spinner"></span> Preparing Your Quote...';
 
-      /* ---- Send to CRM / webhook here ---- */
-      /* fetch('/api/leads', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(answers) }) */
-      console.log('Lead data:', answers);
+      /* Send quiz data to n8n → Google Sheets */
+      sendToN8N({
+        source:       'quiz-funnel',
+        fullName:     answers[8]  || '',
+        email:        answers[9]  || '',
+        phone:        answers[10] || '',
+        zipCode:      answers[7]  || '',
+        homeOwner:    answers[1]  || '',
+        homeAge:      answers[2]  || '',
+        powerUsage:   answers[3]  || '',
+        currentSolar: answers[4]  || '',
+        roofShading:  answers[5]  || '',
+        monthlyBill:  answers[6]  || '',
+        submittedAt:  new Date().toISOString()
+      });
 
       setTimeout(() => {
         document.getElementById('slide-viewport').style.display   = 'none';
@@ -3151,11 +3348,11 @@
         document.getElementById('form-privacy-note').style.display = 'none';
         document.getElementById('thankyou-box').classList.add('visible');
         document.getElementById('thankyou-box').scrollIntoView({ behavior:'smooth', block:'center' });
-        // Hide sticky bar after successful submit
         const stickyCta = document.getElementById('sticky-cta');
         if (stickyCta) { stickyCta.classList.add('hidden'); stickyCta.classList.remove('visible'); }
       }, 1500);
     }
+
 
     /* Enter key on inputs */
     document.getElementById('field-zip').addEventListener('keydown',   e => { if (e.key==='Enter') nextSlideInput(7,'field-zip','err-zip'); });
