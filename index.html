@@ -592,12 +592,162 @@
       font-size: 12px;
       color: var(--text-light);
     }
+    /* State Toggle — PulseBeams Glow */
+    .benefits-toggle-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .benefits-toggle-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-light);
+      margin-bottom: 14px;
+    }
+    .benefits-toggle {
+      display: flex;
+      position: relative;
+      background: #09090b;
+      border-radius: 60px;
+      padding: 5px;
+      gap: 4px;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.08),
+        0 0 50px rgba(14,165,233,0.1),
+        0 8px 32px rgba(0,0,0,0.5);
+    }
+    /* Animated beam accents */
+    .benefits-toggle::before,
+    .benefits-toggle::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      height: 2px;
+      border-radius: 2px;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .benefits-toggle::before {
+      left: -60px;
+      width: 50px;
+      background: linear-gradient(90deg, transparent, #22d3ee, #a78bfa);
+      animation: beamPulseLeft 3s ease-in-out infinite;
+    }
+    .benefits-toggle::after {
+      right: -60px;
+      width: 50px;
+      background: linear-gradient(90deg, #a78bfa, #d946ef, transparent);
+      animation: beamPulseRight 3s ease-in-out infinite;
+    }
+    @keyframes beamPulseLeft {
+      0%, 100% { opacity: 0.15; width: 30px; }
+      50% { opacity: 0.6; width: 60px; }
+    }
+    @keyframes beamPulseRight {
+      0%, 100% { opacity: 0.15; width: 30px; }
+      50% { opacity: 0.6; width: 60px; }
+    }
+    .benefits-tab {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 56px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: rgba(255,255,255,0.4);
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      letter-spacing: 0.02em;
+      overflow: hidden;
+      z-index: 1;
+    }
+    /* Radial glow hover overlay */
+    .benefits-tab::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(80% 100% at 50% 0%, rgba(56,189,248,0.18) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+    .benefits-tab:hover::before {
+      opacity: 1;
+    }
+    .benefits-tab:hover {
+      color: rgba(255,255,255,0.75);
+      border-color: rgba(255,255,255,0.1);
+    }
+    .benefits-tab.active {
+      background: linear-gradient(135deg, #0ea5e9, #7c3aed, #d946ef);
+      background-size: 200% 200%;
+      animation: gradientShift 4s ease infinite;
+      color: white;
+      border-color: transparent;
+      box-shadow:
+        0 0 24px rgba(14,165,233,0.5),
+        0 0 48px rgba(139,92,246,0.2),
+        0 4px 16px rgba(14,165,233,0.3);
+    }
+    .benefits-tab.active::before {
+      display: none;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .benefits-tab .tab-emoji {
+      margin-right: 8px;
+      font-size: 20px;
+    }
+    /* Panels */
+    .benefits-panel { display: none; }
+    .benefits-panel.active { display: block; }
+    /* Result row */
+    .benefits-result {
+      background: linear-gradient(135deg, #0c1a2e 0%, #132744 100%);
+      border-radius: 12px;
+      padding: 20px 28px;
+      margin-top: 24px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .benefits-result__label {
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--sky);
+      margin-bottom: 6px;
+    }
+    .benefits-result__text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: white;
+      line-height: 1.5;
+    }
     @media (max-width: 900px) {
       .benefits-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 560px) {
       .benefits-grid { grid-template-columns: 1fr; }
       .benefits-headline { font-size: 24px; }
+      .benefits-toggle { padding: 4px; }
+      .benefits-toggle::before,
+      .benefits-toggle::after { display: none; }
+      .benefits-tab { font-size: 14px; padding: 14px 22px; }
+      .benefits-tab .tab-emoji { font-size: 16px; }
+      .benefits-result__text { font-size: 14px; }
     }
 
     /* ============================================================
@@ -3004,29 +3154,100 @@
        ============================================================ -->
   <section class="benefits-section">
     <div class="container">
-      <div class="benefits-eyebrow">The Numbers Don't Lie</div>
-      <h2 class="benefits-headline">NJ Homeowners: The 30% Federal Tax Credit Won't Last Forever</h2>
-      <div class="benefits-grid">
-        <div class="benefit-card benefit-card--featured">
-          <div class="benefit-card__badge">Expires 2032</div>
-          <div class="benefit-card__icon">💰</div>
-          <div class="benefit-card__title">Federal Tax Credit</div>
-          <div class="benefit-card__stat">30%</div>
-          <div class="benefit-card__body">The government pays <strong>30% of your solar installation</strong> through the Federal Tax Credit. A $20,000 system could cost you as little as <strong>$14,000</strong>, and your savings start day one.</div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-card__icon">📈</div>
-          <div class="benefit-card__title">Home Value Increase</div>
-          <div class="benefit-card__stat">4.1%</div>
-          <div class="benefit-card__body">Solar homes sell for <strong>4.1% more</strong> according to the National Renewable Energy Laboratory. Your roof is already sitting in the sun. Put it to work.</div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-card__icon">⚡</div>
-          <div class="benefit-card__title">Monthly Savings</div>
-          <div class="benefit-card__stat">$0 <span>down</span></div>
-          <div class="benefit-card__body">No upfront cost. No hidden fees. No activation charges. <strong>Just lower bills starting month one.</strong> BBB Accredited. Licensed and insured.</div>
+      <div class="benefits-eyebrow">Know Exactly What You're Getting</div>
+      <h2 class="benefits-headline">Real Incentives. Real Savings. By State.</h2>
+
+      <!-- State Toggle -->
+      <div class="benefits-toggle-wrap">
+        <div class="benefits-toggle-label">Select Your State</div>
+        <div class="benefits-toggle">
+          <button class="benefits-tab active" onclick="switchStateTab('nj')" id="tab-nj"><span class="tab-emoji">☀️</span>New Jersey</button>
+          <button class="benefits-tab" onclick="switchStateTab('ny')" id="tab-ny"><span class="tab-emoji">🗽</span>New York</button>
         </div>
       </div>
+
+      <!-- NJ Panel -->
+      <div class="benefits-panel active" id="panel-nj">
+        <div class="benefits-grid">
+          <div class="benefit-card benefit-card--featured">
+            <div class="benefit-card__badge">Expires 2032</div>
+            <div class="benefit-card__icon">💰</div>
+            <div class="benefit-card__title">Federal Tax Credit</div>
+            <div class="benefit-card__stat">30%</div>
+            <div class="benefit-card__body"><strong>30% of your system cost back.</strong> A $20,000 system = $6,000 credit. No cap on the amount. This is the biggest federal incentive available.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-card__icon">💸</div>
+            <div class="benefit-card__title">SREC Performance Income</div>
+            <div class="benefit-card__stat">Earn $</div>
+            <div class="benefit-card__body">NJ pays you credits for <strong>every kWh your system produces.</strong> Sell those credits for extra income. This is one of NJ's strongest advantages.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-card__icon">🏠</div>
+            <div class="benefit-card__title">Property Tax Exemption</div>
+            <div class="benefit-card__stat">$0 <span>extra</span></div>
+            <div class="benefit-card__body">Solar increases your home value, but <strong>NJ won't raise your property taxes</strong> for it. You get the value boost without the tax hit.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-card__icon">🧾</div>
+            <div class="benefit-card__title">Sales Tax Exemption</div>
+            <div class="benefit-card__stat">0% <span>tax</span></div>
+            <div class="benefit-card__body"><strong>Zero sales tax on solar equipment</strong> in New Jersey. That's immediate savings the moment you purchase. Most states don't offer this.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-card__icon">⚡</div>
+            <div class="benefit-card__title">Net Metering</div>
+            <div class="benefit-card__stat">Sell <span>back</span></div>
+            <div class="benefit-card__body">Send excess energy to the grid and <strong>earn credits that reduce your future bills.</strong> Your meter can actually work in your favor.</div>
+          </div>
+        </div>
+        <div class="benefits-result">
+          <div class="benefits-result__label">NJ Bottom Line</div>
+          <div class="benefits-result__text">30% federal credit + SREC income + zero extra taxes = major savings from day one</div>
+        </div>
+      </div>
+
+      <!-- NY Panel -->
+      <div class="benefits-panel" id="panel-ny">
+        <div class="benefits-grid">
+          <div class="benefit-card benefit-card--featured">
+            <div class="benefit-card__badge">Expires 2032</div>
+            <div class="benefit-card__icon">💰</div>
+            <div class="benefit-card__title">Federal Tax Credit</div>
+            <div class="benefit-card__stat">30%</div>
+            <div class="benefit-card__body"><strong>Same 30% federal credit.</strong> A $20,000 system = $6,000 back. No cap on the amount. Available to every qualifying homeowner.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-card__icon">💵</div>
+            <div class="benefit-card__title">State Income Tax Credit</div>
+            <div class="benefit-card__stat">25%</div>
+            <div class="benefit-card__body">NY gives you <strong>25% of your system cost back</strong> (up to $5,000) on top of the federal credit. That's 30% + 25% combined.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-card__icon">🏠</div>
+            <div class="benefit-card__title">Property Tax Exemption</div>
+            <div class="benefit-card__stat">15 <span>years</span></div>
+            <div class="benefit-card__body">Solar boosts your home value, but <strong>NY exempts you from extra property tax for up to 15 years.</strong> Long term protection built in.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-card__icon">💸</div>
+            <div class="benefit-card__title">NY-Sun Rebates</div>
+            <div class="benefit-card__stat">Upfront $</div>
+            <div class="benefit-card__body"><strong>Upfront rebates through the NY-Sun program.</strong> Availability varies by region, but it can significantly lower your out of pocket cost.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-card__icon">⚡</div>
+            <div class="benefit-card__title">Net Metering</div>
+            <div class="benefit-card__stat">Sell <span>back</span></div>
+            <div class="benefit-card__body">Credits for excess energy sent back to the grid <strong>reduce your future electric bills.</strong> Your panels keep earning even when you're not home.</div>
+          </div>
+        </div>
+        <div class="benefits-result">
+          <div class="benefits-result__label">NY Bottom Line</div>
+          <div class="benefits-result__text">30% + 25% credits + 15 year tax exemption + lower bills = the strongest savings combo in the Northeast</div>
+        </div>
+      </div>
+
       <div class="benefits-cta-row">
         <a href="#eligibility-form" class="benefits-cta">See Your Savings &darr;</a>
         <span class="benefits-cta-note">Find out in 30 seconds if your home qualifies</span>
@@ -3298,6 +3519,14 @@
       document.getElementById('progress-wrap').style.display   = 'none';
       document.getElementById('form-privacy-note').style.display = 'none';
       document.getElementById('disqualify-box').classList.add('visible');
+    }
+
+    /* ---- State tab toggle (Benefits section) ---- */
+    function switchStateTab(state) {
+      document.querySelectorAll('.benefits-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.benefits-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('tab-' + state).classList.add('active');
+      document.getElementById('panel-' + state).classList.add('active');
     }
 
     /* ---- Send lead data to n8n → Google Sheets ---- */
